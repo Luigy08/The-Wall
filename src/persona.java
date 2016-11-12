@@ -1,4 +1,5 @@
 
+import java.io.Serializable;
 import java.util.Date;
 
 /*
@@ -11,7 +12,7 @@ import java.util.Date;
  *
  * @author luigy
  */
-public class persona {
+public class persona implements Serializable{
     private String nombre;
     private String nacionalidad;
     private Date FNacimiento;
@@ -77,6 +78,11 @@ public class persona {
 
     public void setDeportado(boolean deportado) {
         this.deportado = deportado;
+    }
+
+    @Override
+    public String toString() {
+        return "persona{" + "nombre=" + nombre + '}';
     }
     
 }

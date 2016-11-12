@@ -3,9 +3,10 @@ import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import javax.swing.JDialog;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,6 +24,7 @@ public class principal extends javax.swing.JFrame {
      */
     public principal() {
         initComponents();
+        cargar();
     }
 
     /**
@@ -62,6 +64,8 @@ public class principal extends javax.swing.JFrame {
         jLabel3.setText("Feha de nacimiento");
 
         jLabel4.setText("Raza");
+
+        cb_nr_raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Americano", "Europeo", "Africano", "Asiatico", "Caucasico" }));
 
         cb_nr_deportado.setText("Deportado");
 
@@ -152,6 +156,11 @@ public class principal extends javax.swing.JFrame {
         jMenu1.setText("Inicio");
 
         jMenuItem1.setText("Nuevo registro");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -195,15 +204,17 @@ public class principal extends javax.swing.JFrame {
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 persona temp;
                 Cola lista=new Cola();
-                
                 try {
-                    while ((temp = (persona) objeto.readObject()) != null) {
-                        lista.queue(p);
+                    
+                    while ((temp = (persona)objeto.readObject()) != null) {
+                        lista.queue(temp);
+                        
                     }
                 } catch (EOFException e) {
                 }
                 objeto.close();
                 entrada.close();
+                
                 lista.queue(p);
                 FileOutputStream salida = new FileOutputStream(archivo);
                 ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
@@ -216,9 +227,54 @@ public class principal extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
-        //lista.add(p);
+        emigrantes.queue(p);
+        this.tf_nr_nombre.setText("");
+        this.cb_nr_deportado.setSelected(false);
+        this.cb_nr_nacionalidad.setSelectedIndex(0);
+        this.cb_nr_origen.setSelectedIndex(0);
+        this.cb_nr_raza.setSelectedIndex(0);
+        this.dc_nr_Fnacimiento.setDate(null);
+        
     }//GEN-LAST:event_bt_NuevoRegistroActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        this.dialog(jd_nuevoRegistro);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    public void dialog(JDialog a){
+        a.setModal(true);
+        a.pack();
+        a.setLocationRelativeTo(this);
+        a.setVisible(true);
+    }
+    public void cargar() {
+        File archivo = null;
+        try {
+            archivo = new File("./personas.lu");
+            //Leer lo que ya tiene el archivo y ponerlo en arrayList
+            FileInputStream entrada = new FileInputStream(archivo);
+            ObjectInputStream objeto = new ObjectInputStream(entrada);
+
+            persona cargando = new persona();
+            try {
+                while ((cargando = (persona) objeto.readObject()) != null) {
+                    System.out.println(cargando);
+                    emigrantes.queue(cargando);
+
+                }
+            } catch (EOFException e) {
+                objeto.close();
+                entrada.close();
+            }
+
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -274,4 +330,5 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_nuevoRegistro;
     private javax.swing.JTextField tf_nr_nombre;
     // End of variables declaration//GEN-END:variables
+    Cola emigrantes=new Cola();
 }

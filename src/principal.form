@@ -192,7 +192,13 @@
         <Component class="javax.swing.JComboBox" name="cb_nr_raza">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Americano"/>
+                <StringItem index="1" value="Europeo"/>
+                <StringItem index="2" value="Africano"/>
+                <StringItem index="3" value="Asiatico"/>
+                <StringItem index="4" value="Caucasico"/>
+              </StringArray>
             </Property>
           </Properties>
           <AuxValues>
@@ -321,6 +327,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nuevo registro"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
