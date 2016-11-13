@@ -6,7 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +27,11 @@ public class principal extends javax.swing.JFrame {
     public principal() {
         initComponents();
         cargar();
+        //jL_Asiento1.setIcon( new ImageIcon("ocupado.png") );
+        jDialog1.setVisible(true);
+        jDialog1.setModal(true);
+        jDialog1.pack();
+        
     }
 
     /**
@@ -50,6 +57,15 @@ public class principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         cb_nr_origen = new javax.swing.JComboBox<>();
         dc_nr_Fnacimiento = new com.toedter.calendar.JDateChooser();
+        jDialog1 = new javax.swing.JDialog();
+        jL_Asiento2 = new javax.swing.JLabel();
+        jL_Asiento1 = new javax.swing.JLabel();
+        jL_Asiento3 = new javax.swing.JLabel();
+        jL_Asiento4 = new javax.swing.JLabel();
+        jL_Asiento5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jL_Background = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -151,6 +167,37 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_Asiento2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
+        jDialog1.getContentPane().add(jL_Asiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
+
+        jL_Asiento1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
+        jDialog1.getContentPane().add(jL_Asiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+
+        jL_Asiento3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
+        jDialog1.getContentPane().add(jL_Asiento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+
+        jL_Asiento4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
+        jDialog1.getContentPane().add(jL_Asiento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+
+        jL_Asiento5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
+        jDialog1.getContentPane().add(jL_Asiento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+
+        jLabel7.setText("jLabel7");
+        jDialog1.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jL_Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avion.png"))); // NOI18N
+        jDialog1.getContentPane().add(jL_Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 780, 490));
+
+        jButton1.setText("Abodar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, -1, -1));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Inicio");
@@ -240,7 +287,21 @@ public class principal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         this.dialog(jd_nuevoRegistro);
+        JOptionPane.showMessageDialog(this, ab);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        ab = new AvionHilo(jL_Asiento1,jL_Asiento2,jL_Asiento3,jL_Asiento4,jL_Asiento5);
+        ab.start();
+        jL_Asiento1.setIcon( new ImageIcon("Disponible.png") );
+        jL_Asiento2.setIcon( new ImageIcon("Disponible.png") );
+        jL_Asiento3.setIcon( new ImageIcon("Disponible.png") );
+        jL_Asiento4.setIcon( new ImageIcon("Disponible.png") );
+        jL_Asiento5.setIcon( new ImageIcon("Disponible.png") );
+        
+        
+    }//GEN-LAST:event_jButton1MouseClicked
     public void dialog(JDialog a){
         a.setModal(true);
         a.pack();
@@ -317,12 +378,21 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_nr_origen;
     private javax.swing.JComboBox<String> cb_nr_raza;
     private com.toedter.calendar.JDateChooser dc_nr_Fnacimiento;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jL_Asiento1;
+    private javax.swing.JLabel jL_Asiento2;
+    private javax.swing.JLabel jL_Asiento3;
+    private javax.swing.JLabel jL_Asiento4;
+    private javax.swing.JLabel jL_Asiento5;
+    private javax.swing.JLabel jL_Background;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -331,4 +401,5 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nr_nombre;
     // End of variables declaration//GEN-END:variables
     Cola emigrantes=new Cola();
+    AvionHilo ab;
 }
