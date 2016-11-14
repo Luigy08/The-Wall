@@ -22,23 +22,36 @@ public class AvionHilo extends Thread{
     private JLabel jL_Asiento3;
     private JLabel jL_Asiento4;
     private JLabel jL_Asiento5;
+    private Aviones aviones;
+    
+    
     private boolean avanzar;
     private boolean vive;
 
     public AvionHilo() {
     }
 
- 
-
-    public AvionHilo( JLabel jL_Asiento1, JLabel jL_Asiento2, JLabel jL_Asiento3, JLabel jL_Asiento4, JLabel jL_Asiento5) {
+    public AvionHilo(JProgressBar barra, JLabel jL_Asiento1, JLabel jL_Asiento2, JLabel jL_Asiento3, JLabel jL_Asiento4, JLabel jL_Asiento5, Aviones aviones) {
+        this.barra = barra;
         this.jL_Asiento1 = jL_Asiento1;
         this.jL_Asiento2 = jL_Asiento2;
         this.jL_Asiento3 = jL_Asiento3;
         this.jL_Asiento4 = jL_Asiento4;
         this.jL_Asiento5 = jL_Asiento5;
+        this.aviones = aviones;
         avanzar = true;
         vive = true;
     }
+
+    public Aviones getAviones() {
+        return aviones;
+    }
+
+    public void setAviones(Aviones aviones) {
+        this.aviones = aviones;
+    }
+
+   
 
     public JLabel getjL_Asiento1() {
         return jL_Asiento1;

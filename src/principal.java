@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -20,6 +22,7 @@ import javax.swing.JOptionPane;
  * @author luigy
  */
 public class principal extends javax.swing.JFrame {
+    DefaultListModel model2 = new DefaultListModel();
 
     /**
      * Creates new form principal
@@ -27,11 +30,17 @@ public class principal extends javax.swing.JFrame {
     public principal() {
         initComponents();
         cargar();
+        model2 = new DefaultListModel();
         //jL_Asiento1.setIcon( new ImageIcon("ocupado.png") );
-        jDialog1.setVisible(true);
-        jDialog1.setModal(true);
-        jDialog1.pack();
+        Cola personatem = new Cola();
+        for (int i = 0; i < 10; i++) {
+            Aviones.queue(personatem);
+        }
         
+        
+//        ((Aviones)Aviones.getHead().getValor()).setPersonas(emigrantes);
+     //   Nodo persona =((Aviones)Aviones.getHead().getValor()).getPersonas().getHead().getNext();
+       
     }
 
     /**
@@ -57,7 +66,7 @@ public class principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         cb_nr_origen = new javax.swing.JComboBox<>();
         dc_nr_Fnacimiento = new com.toedter.calendar.JDateChooser();
-        jDialog1 = new javax.swing.JDialog();
+        jD_Simulador = new javax.swing.JDialog();
         jL_Asiento2 = new javax.swing.JLabel();
         jL_Asiento1 = new javax.swing.JLabel();
         jL_Asiento3 = new javax.swing.JLabel();
@@ -66,9 +75,28 @@ public class principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jL_Background = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jD_lista_de_Personas = new javax.swing.JDialog();
+        jB_agregar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jL_Personas = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jC_box_Deportados = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jD_ListaDeportados = new javax.swing.JDialog();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jL_Deportados = new javax.swing.JList<>();
+        jLabel9 = new javax.swing.JLabel();
+        jD_NoDeportados = new javax.swing.JDialog();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jL_NoDeportados = new javax.swing.JList<>();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jM_I_NuevoRegistro = new javax.swing.JMenuItem();
+        jM_I_ListaDePer = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jLabel1.setText("Nombre");
@@ -167,28 +195,28 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jD_Simulador.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jL_Asiento2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jDialog1.getContentPane().add(jL_Asiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
+        jD_Simulador.getContentPane().add(jL_Asiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
         jL_Asiento1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jDialog1.getContentPane().add(jL_Asiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+        jD_Simulador.getContentPane().add(jL_Asiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
         jL_Asiento3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jDialog1.getContentPane().add(jL_Asiento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+        jD_Simulador.getContentPane().add(jL_Asiento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         jL_Asiento4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jDialog1.getContentPane().add(jL_Asiento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+        jD_Simulador.getContentPane().add(jL_Asiento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
 
         jL_Asiento5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jDialog1.getContentPane().add(jL_Asiento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+        jD_Simulador.getContentPane().add(jL_Asiento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
 
         jLabel7.setText("jLabel7");
-        jDialog1.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        jD_Simulador.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         jL_Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avion.png"))); // NOI18N
-        jDialog1.getContentPane().add(jL_Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 780, 490));
+        jD_Simulador.getContentPane().add(jL_Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 780, 490));
 
         jButton1.setText("Abodar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,19 +224,168 @@ public class principal extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, -1, -1));
+        jD_Simulador.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, -1, -1));
+
+        jB_agregar.setText("Agregar");
+        jB_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jB_agregarMouseClicked(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(jL_Personas);
+
+        jButton2.setText("Deportados");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jButton3.setText("No Deportados");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        jLabel10.setText("Agregar deportados");
+
+        javax.swing.GroupLayout jD_lista_de_PersonasLayout = new javax.swing.GroupLayout(jD_lista_de_Personas.getContentPane());
+        jD_lista_de_Personas.getContentPane().setLayout(jD_lista_de_PersonasLayout);
+        jD_lista_de_PersonasLayout.setHorizontalGroup(
+            jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(46, 46, 46)
+                        .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jC_box_Deportados, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jB_agregar)))))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        jD_lista_de_PersonasLayout.setVerticalGroup(
+            jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_lista_de_PersonasLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jC_box_Deportados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jB_agregar)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(28, 28, 28))
+        );
+
+        jButton4.setText("Generar reporte");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(jL_Deportados);
+
+        jLabel9.setText("Deportados");
+
+        javax.swing.GroupLayout jD_ListaDeportadosLayout = new javax.swing.GroupLayout(jD_ListaDeportados.getContentPane());
+        jD_ListaDeportados.getContentPane().setLayout(jD_ListaDeportadosLayout);
+        jD_ListaDeportadosLayout.setHorizontalGroup(
+            jD_ListaDeportadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_ListaDeportadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jD_ListaDeportadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                    .addGroup(jD_ListaDeportadosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton4)))
+                .addGap(130, 130, 130))
+            .addGroup(jD_ListaDeportadosLayout.createSequentialGroup()
+                .addGap(269, 269, 269)
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jD_ListaDeportadosLayout.setVerticalGroup(
+            jD_ListaDeportadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_ListaDeportadosLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addGap(26, 26, 26))
+        );
+
+        jButton5.setText("Generar Reporte");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        jScrollPane3.setViewportView(jL_NoDeportados);
+
+        jLabel8.setText("No Deportados");
+
+        javax.swing.GroupLayout jD_NoDeportadosLayout = new javax.swing.GroupLayout(jD_NoDeportados.getContentPane());
+        jD_NoDeportados.getContentPane().setLayout(jD_NoDeportadosLayout);
+        jD_NoDeportadosLayout.setHorizontalGroup(
+            jD_NoDeportadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_NoDeportadosLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(jD_NoDeportadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(94, 94, 94))
+            .addGroup(jD_NoDeportadosLayout.createSequentialGroup()
+                .addGap(283, 283, 283)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jD_NoDeportadosLayout.setVerticalGroup(
+            jD_NoDeportadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_NoDeportadosLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(25, 25, 25))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Inicio");
 
-        jMenuItem1.setText("Nuevo registro");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jM_I_NuevoRegistro.setText("Nuevo registro");
+        jM_I_NuevoRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jM_I_NuevoRegistroActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jM_I_NuevoRegistro);
+
+        jM_I_ListaDePer.setText("Lista de personas");
+        jM_I_ListaDePer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_I_ListaDePerActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jM_I_ListaDePer);
 
         jMenuBar1.add(jMenu1);
 
@@ -237,6 +414,10 @@ public class principal extends javax.swing.JFrame {
         persona p = new persona(this.tf_nr_nombre.getText(), this.cb_nr_nacionalidad.getSelectedItem().toString(),
                 this.dc_nr_Fnacimiento.getDate(), this.cb_nr_raza.getSelectedItem().toString(),
                 this.cb_nr_origen.getSelectedItem().toString(), this.cb_nr_deportado.isSelected());
+       
+       
+        model2.addElement(p);
+        jL_Personas.setModel(model2);
         File archivo = new File("./personas.lu");
         try {
             if (!archivo.exists()) {
@@ -250,23 +431,23 @@ public class principal extends javax.swing.JFrame {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 persona temp;
-                Cola lista=new Cola();
+                Cola lista = new Cola();
                 try {
-                    
-                    while ((temp = (persona)objeto.readObject()) != null) {
+
+                    while ((temp = (persona) objeto.readObject()) != null) {
                         lista.queue(temp);
-                        
+
                     }
                 } catch (EOFException e) {
                 }
                 objeto.close();
                 entrada.close();
-                
+
                 lista.queue(p);
                 FileOutputStream salida = new FileOutputStream(archivo);
                 ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
-                while(!lista.isEmpty()){
-                    objeto2.writeObject((persona)lista.Dequeue());
+                while (!lista.isEmpty()) {
+                    objeto2.writeObject((persona) lista.Dequeue());
                 }
                 objeto2.flush();
                 objeto2.close();
@@ -281,35 +462,126 @@ public class principal extends javax.swing.JFrame {
         this.cb_nr_origen.setSelectedIndex(0);
         this.cb_nr_raza.setSelectedIndex(0);
         this.dc_nr_Fnacimiento.setDate(null);
-        
+
     }//GEN-LAST:event_bt_NuevoRegistroActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jM_I_NuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_I_NuevoRegistroActionPerformed
         // TODO add your handling code here:
         this.dialog(jd_nuevoRegistro);
         JOptionPane.showMessageDialog(this, ab);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jM_I_NuevoRegistroActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        ab = new AvionHilo(jL_Asiento1,jL_Asiento2,jL_Asiento3,jL_Asiento4,jL_Asiento5);
         ab.start();
-        jL_Asiento1.setIcon( new ImageIcon("Disponible.png") );
-        jL_Asiento2.setIcon( new ImageIcon("Disponible.png") );
-        jL_Asiento3.setIcon( new ImageIcon("Disponible.png") );
-        jL_Asiento4.setIcon( new ImageIcon("Disponible.png") );
-        jL_Asiento5.setIcon( new ImageIcon("Disponible.png") );
-        
-        
+        jL_Asiento1.setIcon(new ImageIcon("Disponible.png"));
+        jL_Asiento2.setIcon(new ImageIcon("Disponible.png"));
+        jL_Asiento3.setIcon(new ImageIcon("Disponible.png"));
+        jL_Asiento4.setIcon(new ImageIcon("Disponible.png"));
+        jL_Asiento5.setIcon(new ImageIcon("Disponible.png"));
+
+
     }//GEN-LAST:event_jButton1MouseClicked
-    public void dialog(JDialog a){
+
+    private void jM_I_ListaDePerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_I_ListaDePerActionPerformed
+        // TODO add your handling code here:
+        jD_lista_de_Personas.pack();
+        jD_lista_de_Personas.setModal(true);
+        jD_lista_de_Personas.setLocationRelativeTo(this);
+        jD_lista_de_Personas.setVisible(true);
+    }//GEN-LAST:event_jM_I_ListaDePerActionPerformed
+
+    private void jB_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_agregarMouseClicked
+        // TODO add your handling code here:
+        int indice = jL_Personas.getSelectedIndex();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        int temp = 0;
+        Nodo tem = emigrantes.getHead();
+        DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jC_box_Deportados.getModel();
+        while (tem != null) {
+            
+            if(temp == indice){
+                if(((persona)tem.getValor()).isDeportado()==false){
+                    ((persona)tem.getValor()).setDeportado(true);
+                    modelo1.addElement(tem.getValor());
+                    
+                    lista_deportados.queue(tem.getValor());
+                    JOptionPane.showMessageDialog(this, "se deporto exitosamente");
+                    
+                }else{
+                JOptionPane.showMessageDialog(this, "Ya esta deportado la persona escoja a otra");
+                }
+                System.out.println(tem.getValor());
+            }
+            tem = tem.getNext();
+            temp++;
+        }
+        jC_box_Deportados.setModel(modelo1);
+        
+        //**
+    }//GEN-LAST:event_jB_agregarMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+     
+        DefaultListModel model= new DefaultListModel();
+        model = new DefaultListModel();
+        Nodo tem = emigrantes.getHead();
+        
+        while (tem != null) {
+            
+          if(((persona)tem.getValor()).isDeportado()==true){
+              model.addElement(tem.getValor());
+          }
+          tem = tem.getNext();
+            
+        }
+        jL_Deportados.setModel(model);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel model= new DefaultListModel();
+        model = new DefaultListModel();
+        Nodo tem = emigrantes.getHead();
+        
+        while (tem != null) {
+            
+          if(((persona)tem.getValor()).isDeportado()==false){
+              model.addElement(tem.getValor());
+          }
+          tem = tem.getNext();
+            
+        }
+        jL_NoDeportados.setModel(model);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:      
+        jD_NoDeportados.pack();
+        jD_NoDeportados.setModal(true);
+        jD_NoDeportados.setLocationRelativeTo(this);
+        jD_NoDeportados.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        
+        jD_ListaDeportados.pack();
+        jD_ListaDeportados.setModal(true);
+        jD_ListaDeportados.setLocationRelativeTo(this);
+        jD_ListaDeportados.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+    public void dialog(JDialog a) {
         a.setModal(true);
         a.pack();
         a.setLocationRelativeTo(this);
         a.setVisible(true);
     }
+
     public void cargar() {
         File archivo = null;
+       // DefaultListModel modelo = (DefaultListModel) jL_Personas.getModel();
         try {
             archivo = new File("./personas.lu");
             //Leer lo que ya tiene el archivo y ponerlo en arrayList
@@ -320,7 +592,13 @@ public class principal extends javax.swing.JFrame {
             try {
                 while ((cargando = (persona) objeto.readObject()) != null) {
                     System.out.println(cargando);
+                    model2.addElement(cargando);
+                    jL_Personas.setModel(model2);
                     emigrantes.queue(cargando);
+                    
+                 
+                   // modelo.addElement(cargando);
+                   // jL_Personas.setModel(modelo);
 
                 }
             } catch (EOFException e) {
@@ -333,9 +611,12 @@ public class principal extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        
 
     }
+    
+ 
+    
+
     /**
      * @param args the command line arguments
      */
@@ -378,28 +659,50 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_nr_origen;
     private javax.swing.JComboBox<String> cb_nr_raza;
     private com.toedter.calendar.JDateChooser dc_nr_Fnacimiento;
+    private javax.swing.JButton jB_agregar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jC_box_Deportados;
+    private javax.swing.JDialog jD_ListaDeportados;
+    private javax.swing.JDialog jD_NoDeportados;
+    private javax.swing.JDialog jD_Simulador;
+    private javax.swing.JDialog jD_lista_de_Personas;
     private javax.swing.JLabel jL_Asiento1;
     private javax.swing.JLabel jL_Asiento2;
     private javax.swing.JLabel jL_Asiento3;
     private javax.swing.JLabel jL_Asiento4;
     private javax.swing.JLabel jL_Asiento5;
     private javax.swing.JLabel jL_Background;
+    private javax.swing.JList<String> jL_Deportados;
+    private javax.swing.JList<String> jL_NoDeportados;
+    private javax.swing.JList<String> jL_Personas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jM_I_ListaDePer;
+    private javax.swing.JMenuItem jM_I_NuevoRegistro;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JDialog jd_nuevoRegistro;
     private javax.swing.JTextField tf_nr_nombre;
     // End of variables declaration//GEN-END:variables
-    Cola emigrantes=new Cola();
+    Cola emigrantes = new Cola();
+    Cola lista_deportados = new Cola();
+    //Cola No_deportados = new Cola();
+    Cola Aviones = new Cola();
     AvionHilo ab;
 }

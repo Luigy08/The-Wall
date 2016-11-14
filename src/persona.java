@@ -82,7 +82,10 @@ public class persona implements Serializable{
 
     @Override
     public String toString() {
-        return "persona{" + "nombre=" + nombre + '}';
+        return " nombre: " + nombre + ", nacionalidad: " + nacionalidad + ", FNacimiento: " + FNacimiento + ", raza: " + raza + ", Pais de Origen: " + PaisOrigen + ", deportado: " + deportado ;
     }
+
+  
+    
     
 }
