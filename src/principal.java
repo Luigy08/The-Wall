@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  * @author luigy
  */
 public class principal extends javax.swing.JFrame {
+
     DefaultListModel model2 = new DefaultListModel();
 
     /**
@@ -31,16 +32,14 @@ public class principal extends javax.swing.JFrame {
         initComponents();
         cargar();
         model2 = new DefaultListModel();
-        //jL_Asiento1.setIcon( new ImageIcon("ocupado.png") );
+        
         Cola personatem = new Cola();
         for (int i = 0; i < 10; i++) {
-            Aviones.queue(personatem);
+            Aviones.Apilar(personatem);
         }
-        
-        
+        HiloAvionAsientos = new HiloAvion(jProgressBar1,jProgressBar2,jProgressBar3,jProgressBar4,jProgressBar5,jProgressBar6,jProgressBar7,jProgressBar8,jProgressBar9,jProgressBar10);
 //        ((Aviones)Aviones.getHead().getValor()).setPersonas(emigrantes);
-     //   Nodo persona =((Aviones)Aviones.getHead().getValor()).getPersonas().getHead().getNext();
-       
+        //   Nodo persona =((Aviones)Aviones.getHead().getValor()).getPersonas().getHead().getNext();
     }
 
     /**
@@ -66,15 +65,6 @@ public class principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         cb_nr_origen = new javax.swing.JComboBox<>();
         dc_nr_Fnacimiento = new com.toedter.calendar.JDateChooser();
-        jD_Simulador = new javax.swing.JDialog();
-        jL_Asiento2 = new javax.swing.JLabel();
-        jL_Asiento1 = new javax.swing.JLabel();
-        jL_Asiento3 = new javax.swing.JLabel();
-        jL_Asiento4 = new javax.swing.JLabel();
-        jL_Asiento5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jL_Background = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jD_lista_de_Personas = new javax.swing.JDialog();
         jB_agregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,6 +73,8 @@ public class principal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jC_box_Deportados = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jD_ListaDeportados = new javax.swing.JDialog();
         jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -93,6 +85,29 @@ public class principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jL_NoDeportados = new javax.swing.JList<>();
         jLabel8 = new javax.swing.JLabel();
+        jD_Simulacion = new javax.swing.JDialog();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
+        jLabel13 = new javax.swing.JLabel();
+        jProgressBar3 = new javax.swing.JProgressBar();
+        jLabel14 = new javax.swing.JLabel();
+        jProgressBar4 = new javax.swing.JProgressBar();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jProgressBar5 = new javax.swing.JProgressBar();
+        jLabel17 = new javax.swing.JLabel();
+        jProgressBar6 = new javax.swing.JProgressBar();
+        jLabel18 = new javax.swing.JLabel();
+        jProgressBar7 = new javax.swing.JProgressBar();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jProgressBar8 = new javax.swing.JProgressBar();
+        jLabel21 = new javax.swing.JLabel();
+        jProgressBar9 = new javax.swing.JProgressBar();
+        jProgressBar10 = new javax.swing.JProgressBar();
+        jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jM_I_NuevoRegistro = new javax.swing.JMenuItem();
@@ -195,37 +210,6 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jD_Simulador.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jL_Asiento2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jD_Simulador.getContentPane().add(jL_Asiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
-
-        jL_Asiento1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jD_Simulador.getContentPane().add(jL_Asiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
-
-        jL_Asiento3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jD_Simulador.getContentPane().add(jL_Asiento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
-
-        jL_Asiento4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jD_Simulador.getContentPane().add(jL_Asiento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
-
-        jL_Asiento5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Disponible.png"))); // NOI18N
-        jD_Simulador.getContentPane().add(jL_Asiento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
-
-        jLabel7.setText("jLabel7");
-        jD_Simulador.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
-
-        jL_Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avion.png"))); // NOI18N
-        jD_Simulador.getContentPane().add(jL_Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 780, 490));
-
-        jButton1.setText("Abodar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jD_Simulador.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, -1, -1));
-
         jB_agregar.setText("Agregar");
         jB_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -251,6 +235,15 @@ public class principal extends javax.swing.JFrame {
 
         jLabel10.setText("Agregar deportados");
 
+        jLabel7.setText("Lista de personas ");
+
+        jButton1.setText("Simulacion");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jD_lista_de_PersonasLayout = new javax.swing.GroupLayout(jD_lista_de_Personas.getContentPane());
         jD_lista_de_Personas.getContentPane().setLayout(jD_lista_de_PersonasLayout);
         jD_lista_de_PersonasLayout.setHorizontalGroup(
@@ -260,8 +253,13 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(46, 46, 46)
+                        .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(46, 46, 46))
+                            .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(18, 18, 18)))
                         .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jC_box_Deportados, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
@@ -271,11 +269,17 @@ public class principal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jB_agregar)))))
                 .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(jD_lista_de_PersonasLayout.createSequentialGroup()
+                .addGap(341, 341, 341)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jD_lista_de_PersonasLayout.setVerticalGroup(
             jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_lista_de_PersonasLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -285,7 +289,8 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(jD_lista_de_PersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_agregar)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton1))
                 .addGap(28, 28, 28))
         );
 
@@ -367,6 +372,172 @@ public class principal extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        jProgressBar1.setMaximum(5);
+
+        jLabel11.setText("Avion1");
+
+        jLabel12.setText("Avion 2");
+
+        jProgressBar2.setMaximum(5);
+
+        jLabel13.setText("Avion 3");
+
+        jProgressBar3.setMaximum(5);
+
+        jLabel14.setText("Asignando Asientos");
+
+        jProgressBar4.setMaximum(5);
+
+        jLabel15.setText("Avion 4");
+
+        jLabel16.setText("Avion 5");
+
+        jProgressBar5.setMaximum(5);
+
+        jLabel17.setText("Avion 6");
+
+        jProgressBar6.setMaximum(5);
+
+        jLabel18.setText("Avion 7");
+
+        jProgressBar7.setMaximum(5);
+
+        jLabel19.setText("Avion 8");
+
+        jLabel20.setText("Avion9");
+
+        jProgressBar8.setMaximum(5);
+
+        jLabel21.setText("Avion10");
+
+        jProgressBar9.setMaximum(5);
+
+        jProgressBar10.setMaximum(5);
+
+        jButton6.setText("Aceptar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jD_SimulacionLayout = new javax.swing.GroupLayout(jD_Simulacion.getContentPane());
+        jD_Simulacion.getContentPane().setLayout(jD_SimulacionLayout);
+        jD_SimulacionLayout.setHorizontalGroup(
+            jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jProgressBar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jProgressBar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addComponent(jProgressBar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jProgressBar10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jProgressBar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jProgressBar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_SimulacionLayout.createSequentialGroup()
+                        .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(jLabel13))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addGap(240, 240, 240)
+                                .addComponent(jLabel14))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(jLabel15))
+                            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel16)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel21))
+                        .addGap(54, 54, 54)))
+                .addGap(137, 137, 137))
+            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(198, 198, 198))
+            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addGap(197, 197, 197))
+            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(jButton6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jD_SimulacionLayout.setVerticalGroup(
+            jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jD_SimulacionLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel14)
+                .addGap(30, 30, 30)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jProgressBar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jProgressBar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jProgressBar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel20))
+                .addGap(12, 12, 12)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jProgressBar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jProgressBar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jProgressBar10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(65, 65, 65))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Inicio");
@@ -414,8 +585,7 @@ public class principal extends javax.swing.JFrame {
         persona p = new persona(this.tf_nr_nombre.getText(), this.cb_nr_nacionalidad.getSelectedItem().toString(),
                 this.dc_nr_Fnacimiento.getDate(), this.cb_nr_raza.getSelectedItem().toString(),
                 this.cb_nr_origen.getSelectedItem().toString(), this.cb_nr_deportado.isSelected());
-       
-       
+
         model2.addElement(p);
         jL_Personas.setModel(model2);
         File archivo = new File("./personas.lu");
@@ -468,20 +638,8 @@ public class principal extends javax.swing.JFrame {
     private void jM_I_NuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_I_NuevoRegistroActionPerformed
         // TODO add your handling code here:
         this.dialog(jd_nuevoRegistro);
-        JOptionPane.showMessageDialog(this, ab);
+
     }//GEN-LAST:event_jM_I_NuevoRegistroActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        ab.start();
-        jL_Asiento1.setIcon(new ImageIcon("Disponible.png"));
-        jL_Asiento2.setIcon(new ImageIcon("Disponible.png"));
-        jL_Asiento3.setIcon(new ImageIcon("Disponible.png"));
-        jL_Asiento4.setIcon(new ImageIcon("Disponible.png"));
-        jL_Asiento5.setIcon(new ImageIcon("Disponible.png"));
-
-
-    }//GEN-LAST:event_jButton1MouseClicked
 
     private void jM_I_ListaDePerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_I_ListaDePerActionPerformed
         // TODO add your handling code here:
@@ -499,59 +657,161 @@ public class principal extends javax.swing.JFrame {
         Nodo tem = emigrantes.getHead();
         DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jC_box_Deportados.getModel();
         while (tem != null) {
-            
-            if(temp == indice){
-                if(((persona)tem.getValor()).isDeportado()==false){
-                    ((persona)tem.getValor()).setDeportado(true);
+
+            if (temp == indice) {
+                if (((persona) tem.getValor()).isDeportado() == false) {
+                    ((persona) tem.getValor()).setDeportado(true);
                     modelo1.addElement(tem.getValor());
-                    
+
                     lista_deportados.queue(tem.getValor());
                     JOptionPane.showMessageDialog(this, "se deporto exitosamente");
+
+                    persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
+
                     
-                }else{
-                JOptionPane.showMessageDialog(this, "Ya esta deportado la persona escoja a otra");
+                    File archivo = new File("./personasDep.lu");
+                    try {
+                        if (!archivo.exists()) {
+                            FileOutputStream salida = new FileOutputStream(archivo);
+                            ObjectOutputStream objeto = new ObjectOutputStream(salida);
+                            objeto.writeObject(p);
+                            objeto.flush();
+                            objeto.close();
+                            salida.close();
+                        } else {
+                            FileInputStream entrada = new FileInputStream(archivo);
+                            ObjectInputStream objeto = new ObjectInputStream(entrada);
+                            persona temp1;
+                            Cola lista = new Cola();
+                            try {
+
+                                while ((temp1 = (persona) objeto.readObject()) != null) {
+                                    lista.queue(temp1);
+
+                                }
+                            } catch (EOFException e) {
+                            }
+                            objeto.close();
+                            entrada.close();
+
+                            lista.queue(p);
+                            FileOutputStream salida = new FileOutputStream(archivo);
+                            ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+                            while (!lista.isEmpty()) {
+                                objeto2.writeObject((persona) lista.Dequeue());
+                            }
+                            objeto2.flush();
+                            objeto2.close();
+                            salida.close();
+                        }
+                    } catch (Exception e) {
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Ya esta deportado la persona escoja a otra");
                 }
+                System.out.println("------");
                 System.out.println(tem.getValor());
             }
             tem = tem.getNext();
             temp++;
         }
         jC_box_Deportados.setModel(modelo1);
-        
+        File archivo = new File("./personas.lu");
+        archivo.delete();
+        tem = emigrantes.getHead();
+        File archivo2 = new File("./personas.lu");
+        while (tem != null) {
+
+            persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
+
+            try {
+                if (!archivo2.exists()) {
+                    FileOutputStream salida = new FileOutputStream(archivo2);
+                    ObjectOutputStream objeto = new ObjectOutputStream(salida);
+                    objeto.writeObject(p);
+                    objeto.flush();
+                    objeto.close();
+                    salida.close();
+                } else {
+                    FileInputStream entrada = new FileInputStream(archivo2);
+                    ObjectInputStream objeto = new ObjectInputStream(entrada);
+                    persona temp1;
+                    Cola lista = new Cola();
+                    try {
+
+                        while ((temp1 = (persona) objeto.readObject()) != null) {
+                            lista.queue(temp1);
+
+                        }
+                    } catch (EOFException e) {
+                    }
+                    objeto.close();
+                    entrada.close();
+
+                    lista.queue(p);
+                    FileOutputStream salida = new FileOutputStream(archivo2);
+                    ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+                    while (!lista.isEmpty()) {
+                        objeto2.writeObject((persona) lista.Dequeue());
+                    }
+                    objeto2.flush();
+                    objeto2.close();
+                    salida.close();
+                }
+            } catch (Exception e) {
+            }
+
+            tem = tem.getNext();
+        }
+
+        DefaultListModel model = new DefaultListModel();
+        model = new DefaultListModel();
+        tem = emigrantes.getHead();
+
+        while (tem != null) {
+
+            model.addElement(tem.getValor());
+
+            tem = tem.getNext();
+
+        }
+        jL_Personas.setModel(model);
+
         //**
     }//GEN-LAST:event_jB_agregarMouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-     
-        DefaultListModel model= new DefaultListModel();
+
+        DefaultListModel model = new DefaultListModel();
         model = new DefaultListModel();
         Nodo tem = emigrantes.getHead();
-        
+
         while (tem != null) {
-            
-          if(((persona)tem.getValor()).isDeportado()==true){
-              model.addElement(tem.getValor());
-          }
-          tem = tem.getNext();
-            
+
+            if (((persona) tem.getValor()).isDeportado() == true) {
+                model.addElement(tem.getValor());
+            }
+            tem = tem.getNext();
+
         }
         jL_Deportados.setModel(model);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        DefaultListModel model= new DefaultListModel();
+        DefaultListModel model = new DefaultListModel();
         model = new DefaultListModel();
         Nodo tem = emigrantes.getHead();
-        
+
         while (tem != null) {
-            
-          if(((persona)tem.getValor()).isDeportado()==false){
-              model.addElement(tem.getValor());
-          }
-          tem = tem.getNext();
-            
+
+            if (((persona) tem.getValor()).isDeportado() == false) {
+                model.addElement(tem.getValor());
+            }
+            tem = tem.getNext();
+
         }
         jL_NoDeportados.setModel(model);
     }//GEN-LAST:event_jButton5MouseClicked
@@ -566,12 +826,26 @@ public class principal extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        
+
         jD_ListaDeportados.pack();
         jD_ListaDeportados.setModal(true);
         jD_ListaDeportados.setLocationRelativeTo(this);
         jD_ListaDeportados.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        jD_Simulacion.pack();
+        jD_Simulacion.setModal(true);
+        jD_Simulacion.setLocationRelativeTo(this);
+        jD_Simulacion.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        HiloAvionAsientos.start();
+    }//GEN-LAST:event_jButton6MouseClicked
     public void dialog(JDialog a) {
         a.setModal(true);
         a.pack();
@@ -581,7 +855,7 @@ public class principal extends javax.swing.JFrame {
 
     public void cargar() {
         File archivo = null;
-       // DefaultListModel modelo = (DefaultListModel) jL_Personas.getModel();
+        // DefaultListModel modelo = (DefaultListModel) jL_Personas.getModel();
         try {
             archivo = new File("./personas.lu");
             //Leer lo que ya tiene el archivo y ponerlo en arrayList
@@ -595,11 +869,9 @@ public class principal extends javax.swing.JFrame {
                     model2.addElement(cargando);
                     jL_Personas.setModel(model2);
                     emigrantes.queue(cargando);
-                    
-                 
-                   // modelo.addElement(cargando);
-                   // jL_Personas.setModel(modelo);
 
+                    // modelo.addElement(cargando);
+                    // jL_Personas.setModel(modelo);
                 }
             } catch (EOFException e) {
                 objeto.close();
@@ -613,9 +885,6 @@ public class principal extends javax.swing.JFrame {
         }
 
     }
-    
- 
-    
 
     /**
      * @param args the command line arguments
@@ -665,23 +934,29 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jC_box_Deportados;
     private javax.swing.JDialog jD_ListaDeportados;
     private javax.swing.JDialog jD_NoDeportados;
-    private javax.swing.JDialog jD_Simulador;
+    private javax.swing.JDialog jD_Simulacion;
     private javax.swing.JDialog jD_lista_de_Personas;
-    private javax.swing.JLabel jL_Asiento1;
-    private javax.swing.JLabel jL_Asiento2;
-    private javax.swing.JLabel jL_Asiento3;
-    private javax.swing.JLabel jL_Asiento4;
-    private javax.swing.JLabel jL_Asiento5;
-    private javax.swing.JLabel jL_Background;
     private javax.swing.JList<String> jL_Deportados;
     private javax.swing.JList<String> jL_NoDeportados;
     private javax.swing.JList<String> jL_Personas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -694,6 +969,16 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar10;
+    private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JProgressBar jProgressBar3;
+    private javax.swing.JProgressBar jProgressBar4;
+    private javax.swing.JProgressBar jProgressBar5;
+    private javax.swing.JProgressBar jProgressBar6;
+    private javax.swing.JProgressBar jProgressBar7;
+    private javax.swing.JProgressBar jProgressBar8;
+    private javax.swing.JProgressBar jProgressBar9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -702,7 +987,7 @@ public class principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     Cola emigrantes = new Cola();
     Cola lista_deportados = new Cola();
-    //Cola No_deportados = new Cola();
-    Cola Aviones = new Cola();
-    AvionHilo ab;
+    Pila Aviones = new Pila();
+    HiloAvion HiloAvionAsientos;
+
 }

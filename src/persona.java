@@ -80,6 +80,7 @@ public class persona implements Serializable{
         this.deportado = deportado;
     }
 
+    
     @Override
     public String toString() {
         return " nombre: " + nombre + ", nacionalidad: " + nacionalidad + ", FNacimiento: " + FNacimiento + ", raza: " + raza + ", Pais de Origen: " + PaisOrigen + ", deportado: " + deportado ;
