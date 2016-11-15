@@ -211,7 +211,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
                     }//fin for
@@ -243,7 +243,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
@@ -276,7 +276,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
@@ -309,7 +309,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
                     }//fin for
@@ -341,7 +341,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
                     }//fin for
@@ -374,7 +374,7 @@ public class HiloAvion extends Thread {
 
                         }
                         
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
@@ -407,7 +407,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
@@ -440,7 +440,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
@@ -473,7 +473,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
@@ -506,7 +506,7 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-                        if(i==4){
+                        if(i==4&&tem!= null){
                         JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 

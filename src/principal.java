@@ -663,7 +663,7 @@ public class principal extends javax.swing.JFrame {
                     ((persona) tem.getValor()).setDeportado(true);
                     modelo1.addElement(tem.getValor());
 
-                    lista_deportados.queue(tem.getValor());
+                    lista_deportados.Apilar(tem.getValor());
                     JOptionPane.showMessageDialog(this, "se deporto exitosamente");
 
                     persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
@@ -985,7 +985,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nr_nombre;
     // End of variables declaration//GEN-END:variables
     Cola emigrantes = new Cola();
-    Cola lista_deportados = new Cola();
+    Pila lista_deportados = new Pila();
     Pila Aviones = new Pila();
     HiloAvion HiloAvionAsientos;
 
