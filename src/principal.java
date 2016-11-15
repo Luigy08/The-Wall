@@ -32,12 +32,12 @@ public class principal extends javax.swing.JFrame {
         initComponents();
         cargar();
         model2 = new DefaultListModel();
-        
+
         Cola personatem = new Cola();
         for (int i = 0; i < 10; i++) {
             Aviones.Apilar(personatem);
         }
-        HiloAvionAsientos = new HiloAvion(jProgressBar1,jProgressBar2,jProgressBar3,jProgressBar4,jProgressBar5,jProgressBar6,jProgressBar7,jProgressBar8,jProgressBar9,jProgressBar10);
+        HiloAvionAsientos = new HiloAvion(jProgressBar1, jProgressBar2, jProgressBar3, jProgressBar4, jProgressBar5, jProgressBar6, jProgressBar7, jProgressBar8, jProgressBar9, jProgressBar10);
 //        ((Aviones)Aviones.getHead().getValor()).setPersonas(emigrantes);
         //   Nodo persona =((Aviones)Aviones.getHead().getValor()).getPersonas().getHead().getNext();
     }
@@ -668,7 +668,6 @@ public class principal extends javax.swing.JFrame {
 
                     persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
 
-                    
                     File archivo = new File("./personasDep.lu");
                     try {
                         if (!archivo.exists()) {
@@ -724,7 +723,7 @@ public class principal extends javax.swing.JFrame {
         while (tem != null) {
 
             persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
-
+            
             try {
                 if (!archivo2.exists()) {
                     FileOutputStream salida = new FileOutputStream(archivo2);
@@ -839,7 +838,7 @@ public class principal extends javax.swing.JFrame {
         jD_Simulacion.setModal(true);
         jD_Simulacion.setLocationRelativeTo(this);
         jD_Simulacion.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked

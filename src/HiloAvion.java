@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 /**
@@ -210,7 +211,9 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
+                        }
                     }//fin for
                     Avion atemp = new Avion(lista, true);
                     aviones.Apilar(atemp);
@@ -239,6 +242,9 @@ public class HiloAvion extends Thread {
                         if (tem == null) {
                             vive = false;
 
+                        }
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
                     }//fin for
@@ -270,6 +276,9 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
+                        }
 
                     }//fin for
                     Avion atemp = new Avion(lista, true);
@@ -300,7 +309,9 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
+                        }
                     }//fin for
                     Avion atemp = new Avion(lista, true);
                     aviones.Apilar(atemp);
@@ -330,7 +341,9 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
-
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
+                        }
                     }//fin for
                     Avion atemp = new Avion(lista, true);
                     aviones.Apilar(atemp);
@@ -359,6 +372,10 @@ public class HiloAvion extends Thread {
                         if (tem == null) {
                             vive = false;
 
+                        }
+                        
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
                     }//fin for
@@ -390,6 +407,9 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
+                        }
 
                     }//fin for
                     Avion atemp = new Avion(lista, true);
@@ -419,6 +439,9 @@ public class HiloAvion extends Thread {
                         if (tem == null) {
                             vive = false;
 
+                        }
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
                     }//fin for
@@ -450,6 +473,9 @@ public class HiloAvion extends Thread {
                             vive = false;
 
                         }
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
+                        }
 
                     }//fin for
                     Avion atemp = new Avion(lista, true);
@@ -479,6 +505,9 @@ public class HiloAvion extends Thread {
                         if (tem == null) {
                             vive = false;
 
+                        }
+                        if(i==4){
+                        JOptionPane.showMessageDialog(barra1, "Se lleno el Avion");
                         }
 
                     }//fin for
@@ -549,39 +578,13 @@ public class HiloAvion extends Thread {
         Hangar p = new Hangar(aviones,true);
         archivo = new File("./Aviones_saliendo_del_Hangar.lu");
         try {
-            if (!archivo.exists()) {
                 FileOutputStream salida = new FileOutputStream(archivo);
                 ObjectOutputStream objeto = new ObjectOutputStream(salida);
                 objeto.writeObject(p);
                 objeto.flush();
                 objeto.close();
                 salida.close();
-            } else {
-                FileInputStream entrada = new FileInputStream(archivo);
-                ObjectInputStream objeto = new ObjectInputStream(entrada);
-                persona temp;
-                Cola lista = new Cola();
-                try {
-
-                    while ((temp = (persona) objeto.readObject()) != null) {
-                        lista.queue(temp);
-
-                    }
-                } catch (EOFException e) {
-                }
-                objeto.close();
-                entrada.close();
-
-                lista.queue(p);
-                FileOutputStream salida = new FileOutputStream(archivo);
-                ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
-                while (!lista.isEmpty()) {
-                    objeto2.writeObject((persona) lista.Dequeue());
-                }
-                objeto2.flush();
-                objeto2.close();
-                salida.close();
-            }
+            
         } catch (Exception e) {
         }
 
