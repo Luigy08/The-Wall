@@ -78,7 +78,7 @@ public class principal extends javax.swing.JFrame {
 
         jLabel4.setText("Raza");
 
-        cb_nr_raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Americano", "Europeo", "Africano", "Asiatico", "Caucasico" }));
+        cb_nr_raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Caucasico", "Hispano", "Afroasiatico", "Idioeuropeo", "Niger-congo" }));
 
         cb_nr_deportado.setText("Deportado");
 
@@ -341,7 +341,62 @@ public class principal extends javax.swing.JFrame {
         hiloAbordar.start();
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public void escribirDeportados(persona p){
+        File archivo = new File("./deportados.lu");
+        try {
+            if (!archivo.exists()) {
+                FileOutputStream salida = new FileOutputStream(archivo);
+                ObjectOutputStream objeto = new ObjectOutputStream(salida);
+                objeto.writeObject(p);
+                objeto.flush();
+                objeto.close();
+                salida.close();
+            } else {
+                FileInputStream entrada = new FileInputStream(archivo);
+                ObjectInputStream objeto = new ObjectInputStream(entrada);
+                persona temp;
+                Cola lista=new Cola();
+                try {
+                    
+                    while ((temp = (persona)objeto.readObject()) != null) {
+                        lista.queue(temp);
+                        
+                    }
+                } catch (EOFException e) {
+                }
+                objeto.close();
+                entrada.close();
+                
+                lista.queue(p);
+                FileOutputStream salida = new FileOutputStream(archivo);
+                ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+                while(!lista.isEmpty()){
+                    objeto2.writeObject((persona)lista.Dequeue());
+                }
+                objeto2.flush();
+                objeto2.close();
+                salida.close();
+            }
+        } catch (Exception e) {
+        }
+        deportados.queue(p);
+    }
+    public void escribirEmigrantes(Cola b){
+        File archivo = new File("./personas.lu");
+        Cola a=b;
+        try {
+                          
+                FileOutputStream salida = new FileOutputStream(archivo);
+                ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+                while(!a.isEmpty()){
+                    objeto2.writeObject((persona)a.Dequeue());
+                }
+                objeto2.flush();
+                objeto2.close();
+                salida.close();
+        } catch (Exception e) {
+        }
+    }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         
@@ -459,5 +514,5 @@ public class principal extends javax.swing.JFrame {
     Cola angar=new Cola();
     Avion enVuelo;
     Habordar hiloAbordar;
-    
+     
 }

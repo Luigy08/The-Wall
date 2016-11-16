@@ -45,7 +45,12 @@ public class Habordar extends Thread{
                 Thread.sleep(5000);
             } catch (Exception e) {
             }
-            ((Avion) angar.getHead().getValor()).getPasajeros().Apilar(emigrantes.Dequeue());
+            ((persona)emigrantes.getHead().getValor()).setDeportado(true);
+            //principal p=new principal();
+            persona abordado=(persona)emigrantes.Dequeue();
+           // p.escribirDeportados(abordado);
+            //p.escribirEmigrantes(emigrantes);
+            ((Avion) angar.getHead().getValor()).getPasajeros().Apilar(abordado);
             abordando.setValue(abordando.getValue() + 1);
             con++;
             if (con == 5) {
@@ -55,9 +60,7 @@ public class Habordar extends Thread{
                 con = 0;
                 hiloDespegue = new HDespegue(this.pb_AV, deportados, this.lb_destino, angar, enVuelo);
                 hiloDespegue.start();
-
             }
-
         }
     }
 }

@@ -193,11 +193,11 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
-                <StringItem index="0" value="Americano"/>
-                <StringItem index="1" value="Europeo"/>
-                <StringItem index="2" value="Africano"/>
-                <StringItem index="3" value="Asiatico"/>
-                <StringItem index="4" value="Caucasico"/>
+                <StringItem index="0" value="Caucasico"/>
+                <StringItem index="1" value="Hispano"/>
+                <StringItem index="2" value="Afroasiatico"/>
+                <StringItem index="3" value="Idioeuropeo"/>
+                <StringItem index="4" value="Niger-congo"/>
               </StringArray>
             </Property>
           </Properties>
