@@ -11,38 +11,52 @@ import java.io.Serializable;
  *
  * @author pc
  */
-public class Avion implements Serializable {
+public class Avion implements Serializable{
+    private String nombre;
+    private Pila pasajeros;
+    private boolean disponible;
     
-    private Pila personas;
-    private boolean lleno;
-   
-
-    public Avion() {
+    public Avion(String nombre,boolean disponible) {
+       this.nombre=nombre;
+       this.disponible=disponible;
+       pasajeros=new Pila();
     }
 
-    public Avion(Pila personas, boolean lleno) {
-        this.personas = personas;
-        this.lleno = lleno;
+    public Avion(String nombre, Pila pasajeros, boolean disponible) {
+        this.nombre = nombre;
+        this.pasajeros = pasajeros;
+        this.disponible = disponible;
+        
     }
 
-    public boolean isLleno() {
-        return lleno;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setLleno(boolean lleno) {
-        this.lleno = lleno;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-
-    public Pila getPersonas() {
-        return personas;
+    public Pila getPasajeros() {
+        return pasajeros;
     }
 
-    public void setPersonas(Pila personas) {
-        this.personas = personas;
+    public void setPasajeros(Pila pasajeros) {
+        this.pasajeros = pasajeros;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    @Override
+    public String toString() {
+        return "Avion{" + "nombre=" + nombre + ", pasajeros=" + pasajeros + ", disponible=" + disponible + '}';
     }
     
-    
-     
     
 }
