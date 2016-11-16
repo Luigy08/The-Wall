@@ -16,7 +16,7 @@ import javax.swing.JProgressBar;
  */
 public class AvionHilo extends Thread{
     
-    private JProgressBar barra;
+   /* private JProgressBar barra;
     private JLabel jL_Asiento1;
     private JLabel jL_Asiento2;
     private JLabel jL_Asiento3;
@@ -159,6 +159,6 @@ public class AvionHilo extends Thread{
         }
         
 }
-    
+    */
     
 }

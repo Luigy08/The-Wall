@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 
 /*
@@ -24,9 +25,10 @@ public class principal extends javax.swing.JFrame {
      */
     public principal() {
         initComponents();
-        cargar();     
-        hiloAbordar=new Habordar(this.pb_AA,emigrantes,deportados,this.lb_emigrantes,this.lb_nomA,angar,enVuelo,this.pb_AV,this.lb_destino);
-        
+        cargar();
+        cargarListaDeportados();
+        hiloAbordar = new Habordar(this.pb_AA, emigrantes, deportados, this.lb_emigrantes, this.lb_nomA, angar, enVuelo, this.pb_AV, this.lb_destino);
+
     }
 
     /**
@@ -62,10 +64,15 @@ public class principal extends javax.swing.JFrame {
         lb_destino = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jD_ListaDe = new javax.swing.JDialog();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jL_Deportados = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jLabel1.setText("Nombre");
@@ -231,6 +238,38 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jButton2.setText("Generar Reporte");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(jL_Deportados);
+
+        javax.swing.GroupLayout jD_ListaDeLayout = new javax.swing.GroupLayout(jD_ListaDe.getContentPane());
+        jD_ListaDe.getContentPane().setLayout(jD_ListaDeLayout);
+        jD_ListaDeLayout.setHorizontalGroup(
+            jD_ListaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_ListaDeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(54, 54, 54))
+            .addGroup(jD_ListaDeLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        jD_ListaDeLayout.setVerticalGroup(
+            jD_ListaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jD_ListaDeLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(28, 28, 28))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Inicio");
@@ -255,6 +294,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Lista");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
 
@@ -296,23 +343,23 @@ public class principal extends javax.swing.JFrame {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 persona temp;
-                Cola lista=new Cola();
+                Cola lista = new Cola();
                 try {
-                    
-                    while ((temp = (persona)objeto.readObject()) != null) {
+
+                    while ((temp = (persona) objeto.readObject()) != null) {
                         lista.queue(temp);
-                        
+
                     }
                 } catch (EOFException e) {
                 }
                 objeto.close();
                 entrada.close();
-                
+
                 lista.queue(p);
                 FileOutputStream salida = new FileOutputStream(archivo);
                 ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
-                while(!lista.isEmpty()){
-                    objeto2.writeObject((persona)lista.Dequeue());
+                while (!lista.isEmpty()) {
+                    objeto2.writeObject((persona) lista.Dequeue());
                 }
                 objeto2.flush();
                 objeto2.close();
@@ -321,27 +368,155 @@ public class principal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         emigrantes.queue(p);
+        emigrantestemp.queue(p);
         this.tf_nr_nombre.setText("");
         this.cb_nr_deportado.setSelected(false);
         this.cb_nr_nacionalidad.setSelectedIndex(0);
         this.cb_nr_origen.setSelectedIndex(0);
         this.cb_nr_raza.setSelectedIndex(0);
         this.dc_nr_Fnacimiento.setDate(null);
-        
+
     }//GEN-LAST:event_bt_NuevoRegistroActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         this.dialog(jd_nuevoRegistro);
-        //JOptionPane.showMessageDialog(this, ab);
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        double cont = 0;
+        double control = 1;
+        double num = 1;
+        Nodo tem = emigrantestemp.getHead();
+        while (tem.getNext() != null) {
+            if (num == (control / 5)) {
+                if (cont == 0) {
+                    // cont++;
+                }
+                cont++;
+            }
+
+            control++;
+            tem = tem.getNext();
+        }
+        if (cont >= 1) {
+            cont = cont * 5;
+        } else {
+            cont = 0;
+        }
+        tem = emigrantes.getHead();
+        for (int i = 0; i < cont; i++) {
+            ((persona) tem.getValor()).setDeportado(true);
+            lista_total.queue(tem.getValor());
+            File archivo = new File("./personasDepo.lu");
+
+            persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
+
+            try {
+                if (!archivo.exists()) {
+                    FileOutputStream salida = new FileOutputStream(archivo);
+                    ObjectOutputStream objeto = new ObjectOutputStream(salida);
+                    objeto.writeObject(p);
+                    objeto.flush();
+                    objeto.close();
+                    salida.close();
+                } else {
+                    FileInputStream entrada = new FileInputStream(archivo);
+                    ObjectInputStream objeto = new ObjectInputStream(entrada);
+                    persona temp;
+                    Cola lista = new Cola();
+                    try {
+
+                        while ((temp = (persona) objeto.readObject()) != null) {
+                            lista.queue(temp);
+
+                        }
+                    } catch (EOFException e) {
+                    }
+                    objeto.close();
+                    entrada.close();
+
+                    lista.queue(p);
+                    FileOutputStream salida = new FileOutputStream(archivo);
+                    ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+                    while (!lista.isEmpty()) {
+                        objeto2.writeObject((persona) lista.Dequeue());
+                    }
+                    objeto2.flush();
+                    objeto2.close();
+                    salida.close();
+                }
+            } catch (Exception e) {
+            }
+            tem = tem.getNext();
+
+            
+        }
+        tem = emigrantestemp.getHead();
+        System.out.println(cont);
+        for (double i = 0; i < cont; i++) {
+
+            emigrantestemp.Dequeue();
+
+        }
+
+        tem = emigrantestemp.getHead();
+
+        File archivo2 = new File("./personas.lu");
+        archivo2.delete();
+        tem = emigrantestemp.getHead();
+        while (tem.getNext() != null) {
+            File archivo = new File("./personas.lu");
+
+            persona p = new persona(((persona) tem.getValor()).getNombre(), ((persona) tem.getValor()).getNacionalidad(), ((persona) tem.getValor()).getFNacimiento(), ((persona) tem.getValor()).getRaza(), ((persona) tem.getValor()).getPaisOrigen(), ((persona) tem.getValor()).isDeportado());
+
+            try {
+                if (!archivo.exists()) {
+                    FileOutputStream salida = new FileOutputStream(archivo);
+                    ObjectOutputStream objeto = new ObjectOutputStream(salida);
+                    objeto.writeObject(p);
+                    objeto.flush();
+                    objeto.close();
+                    salida.close();
+                } else {
+                    FileInputStream entrada = new FileInputStream(archivo);
+                    ObjectInputStream objeto = new ObjectInputStream(entrada);
+                    persona temp;
+                    Cola lista = new Cola();
+                    try {
+
+                        while ((temp = (persona) objeto.readObject()) != null) {
+                            lista.queue(temp);
+
+                        }
+                    } catch (EOFException e) {
+                    }
+                    objeto.close();
+                    entrada.close();
+
+                    lista.queue(p);
+                    FileOutputStream salida = new FileOutputStream(archivo);
+                    ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+                    while (!lista.isEmpty()) {
+                        objeto2.writeObject((persona) lista.Dequeue());
+                    }
+                    objeto2.flush();
+                    objeto2.close();
+                    salida.close();
+                }
+            } catch (Exception e) {
+            }
+            tem = tem.getNext();
+        }
+
+        System.out.println(control);
+        System.out.println(cont);
         hiloAbordar.start();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void escribirDeportados(persona p){
+    public void escribirDeportados(persona p) {
         File archivo = new File("./deportados.lu");
         try {
             if (!archivo.exists()) {
@@ -355,23 +530,23 @@ public class principal extends javax.swing.JFrame {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 persona temp;
-                Cola lista=new Cola();
+                Cola lista = new Cola();
                 try {
-                    
-                    while ((temp = (persona)objeto.readObject()) != null) {
+
+                    while ((temp = (persona) objeto.readObject()) != null) {
                         lista.queue(temp);
-                        
+
                     }
                 } catch (EOFException e) {
                 }
                 objeto.close();
                 entrada.close();
-                
+
                 lista.queue(p);
                 FileOutputStream salida = new FileOutputStream(archivo);
                 ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
-                while(!lista.isEmpty()){
-                    objeto2.writeObject((persona)lista.Dequeue());
+                while (!lista.isEmpty()) {
+                    objeto2.writeObject((persona) lista.Dequeue());
                 }
                 objeto2.flush();
                 objeto2.close();
@@ -379,29 +554,30 @@ public class principal extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
-        deportados.queue(p);
+
     }
-    public void escribirEmigrantes(Cola b){
+
+    public void escribirEmigrantes(Cola b) {
         File archivo = new File("./personas.lu");
-        Cola a=b;
+        Cola a = b;
         try {
-                          
-                FileOutputStream salida = new FileOutputStream(archivo);
-                ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
-                while(!a.isEmpty()){
-                    objeto2.writeObject((persona)a.Dequeue());
-                }
-                objeto2.flush();
-                objeto2.close();
-                salida.close();
+
+            FileOutputStream salida = new FileOutputStream(archivo);
+            ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
+            while (!a.isEmpty()) {
+                objeto2.writeObject((persona) a.Dequeue());
+            }
+            objeto2.flush();
+            objeto2.close();
+            salida.close();
         } catch (Exception e) {
         }
     }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        
+
         for (int i = 0; i < 10; i++) {
-            angar.queue(new Avion("Avion #"+(i+1),true));
+            angar.queue(new Avion("Avion #" + (i + 1), true));
         }
         dialog(this.jd_abordar);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -409,12 +585,40 @@ public class principal extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
-    public void dialog(JDialog a){
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel model = new DefaultListModel();
+        model = new DefaultListModel();
+        Nodo tem = lista_total.getHead();
+
+        while (tem != null) {
+
+            if (((persona) tem.getValor()).isDeportado() == true) {
+                model.addElement(tem.getValor());
+            }
+            tem = tem.getNext();
+
+        }
+        jL_Deportados.setModel(model);
+        
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        
+        jD_ListaDe.pack();
+        jD_ListaDe.setModal(true);
+        jD_ListaDe.setLocationRelativeTo(this);
+        jD_ListaDe.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    public void dialog(JDialog a) {
         a.setModal(true);
         a.pack();
         a.setLocationRelativeTo(this);
         a.setVisible(true);
     }
+
     public void cargar() {
         File archivo = null;
         try {
@@ -428,6 +632,7 @@ public class principal extends javax.swing.JFrame {
                 while ((cargando = (persona) objeto.readObject()) != null) {
                     System.out.println(cargando);
                     emigrantes.queue(cargando);
+                    emigrantestemp.queue(cargando);
 
                 }
             } catch (EOFException e) {
@@ -440,9 +645,38 @@ public class principal extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        
 
     }
+
+    public void cargarListaDeportados() {
+        File archivo = null;
+        try {
+            archivo = new File("./personasDepo.lu");
+            //Leer lo que ya tiene el archivo y ponerlo en arrayList
+            FileInputStream entrada = new FileInputStream(archivo);
+            ObjectInputStream objeto = new ObjectInputStream(entrada);
+
+            persona cargando = new persona();
+            try {
+                while ((cargando = (persona) objeto.readObject()) != null) {
+                   // System.out.println(cargando);
+                    lista_total.queue(cargando);
+                    //emigrantestemp.queue(cargando);
+
+                }
+            } catch (EOFException e) {
+                objeto.close();
+                entrada.close();
+            }
+
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -486,6 +720,9 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_nr_raza;
     private com.toedter.calendar.JDateChooser dc_nr_Fnacimiento;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jD_ListaDe;
+    private javax.swing.JList<String> jL_Deportados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -500,6 +737,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_abordar;
     private javax.swing.JDialog jd_nuevoRegistro;
     private javax.swing.JLabel lb_destino;
@@ -509,10 +748,12 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JProgressBar pb_AV;
     private javax.swing.JTextField tf_nr_nombre;
     // End of variables declaration//GEN-END:variables
-    Cola emigrantes=new Cola();
-    Cola deportados=new Cola();
-    Cola angar=new Cola();
+    Cola emigrantes = new Cola();
+    Cola emigrantestemp = new Cola();
+    Cola deportados = new Cola();
+    Cola lista_total = new Cola();
+    Cola angar = new Cola();
     Avion enVuelo;
     Habordar hiloAbordar;
-     
+
 }
