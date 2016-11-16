@@ -28,15 +28,7 @@ public class principal extends javax.swing.JFrame {
     public principal() {
         initComponents();
         cargar();
-        model2 = new DefaultListModel();
-
-        Cola personatem = new Cola();
-        for (int i = 0; i < 10; i++) {
-            Aviones.Apilar(personatem);
-        }
-        HiloAvionAsientos = new HiloAvion(jProgressBar1, jProgressBar2, jProgressBar3, jProgressBar4, jProgressBar5, jProgressBar6, jProgressBar7, jProgressBar8, jProgressBar9, jProgressBar10);
-//        ((Aviones)Aviones.getHead().getValor()).setPersonas(emigrantes);
-        //   Nodo persona =((Aviones)Aviones.getHead().getValor()).getPersonas().getHead().getNext();
+        hiloAbordar=new Habordar(this.pb_AA,emigrantes,deportados,this.lb_emigrantes,this.lb_nomA,angar,enVuelo,this.pb_AV,this.lb_destino);
     }
 
     /**
@@ -202,9 +194,6 @@ public class principal extends javax.swing.JFrame {
         persona p = new persona(this.tf_nr_nombre.getText(), this.cb_nr_nacionalidad.getSelectedItem().toString(),
                 this.dc_nr_Fnacimiento.getDate(), this.cb_nr_raza.getSelectedItem().toString(),
                 this.cb_nr_origen.getSelectedItem().toString(), this.cb_nr_deportado.isSelected());
-
-        model2.addElement(p);
-        jL_Personas.setModel(model2);
         File archivo = new File("./personas.lu");
         try {
             if (!archivo.exists()) {
@@ -218,23 +207,23 @@ public class principal extends javax.swing.JFrame {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 persona temp;
-                Cola lista = new Cola();
+                Cola lista=new Cola();
                 try {
-
-                    while ((temp = (persona) objeto.readObject()) != null) {
+                    
+                    while ((temp = (persona)objeto.readObject()) != null) {
                         lista.queue(temp);
-
+                        
                     }
                 } catch (EOFException e) {
                 }
                 objeto.close();
                 entrada.close();
-
+                
                 lista.queue(p);
                 FileOutputStream salida = new FileOutputStream(archivo);
                 ObjectOutputStream objeto2 = new ObjectOutputStream(salida);
-                while (!lista.isEmpty()) {
-                    objeto2.writeObject((persona) lista.Dequeue());
+                while(!lista.isEmpty()){
+                    objeto2.writeObject((persona)lista.Dequeue());
                 }
                 objeto2.flush();
                 objeto2.close();
@@ -266,7 +255,6 @@ public class principal extends javax.swing.JFrame {
 
     public void cargar() {
         File archivo = null;
-        // DefaultListModel modelo = (DefaultListModel) jL_Personas.getModel();
         try {
             archivo = new File("./personas.lu");
             //Leer lo que ya tiene el archivo y ponerlo en arrayList
@@ -277,12 +265,8 @@ public class principal extends javax.swing.JFrame {
             try {
                 while ((cargando = (persona) objeto.readObject()) != null) {
                     System.out.println(cargando);
-                    model2.addElement(cargando);
-                    jL_Personas.setModel(model2);
                     emigrantes.queue(cargando);
 
-                    // modelo.addElement(cargando);
-                    // jL_Personas.setModel(modelo);
                 }
             } catch (EOFException e) {
                 objeto.close();
@@ -294,6 +278,7 @@ public class principal extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println(ex);
         }
+        
 
     }
 
@@ -352,9 +337,9 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_nuevoRegistro;
     private javax.swing.JTextField tf_nr_nombre;
     // End of variables declaration//GEN-END:variables
-    Cola emigrantes = new Cola();
-    Pila lista_deportados = new Pila();
-    Pila Aviones = new Pila();
-    HiloAvion HiloAvionAsientos;
-
+    Cola emigrantes=new Cola();
+    Cola deportados=new Cola();
+    Cola angar=new Cola();
+    Avion enVuelo;
+    Habordar hiloAbordar;
 }

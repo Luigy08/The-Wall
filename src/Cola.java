@@ -62,4 +62,13 @@ public class Cola {
             return false;
         }
     }
+    int size(){
+       Nodo tem = head;
+       int salida=0;
+       while (tem != null) {
+            salida++;
+            tem = tem.getNext();
+        }
+        return salida; 
+    }
 }
