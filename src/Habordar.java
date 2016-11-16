@@ -12,7 +12,7 @@ import javax.swing.JProgressBar;
  *
  * @author luigy
  */
-public class Habordar {
+public class Habordar extends Thread{
     private JProgressBar abordando;
     private Cola emigrantes;
     private Cola deportados;
@@ -39,7 +39,7 @@ public class Habordar {
     public void run() {
         int con = 0;
         while (((Avion) angar.getHead().getValor()).isDisponible() && emigrantes.size() > 0) {
-            size.setText(emigrantes + "");
+            size.setText(emigrantes.size() + "");
             AAngar.setText(((Avion) angar.getHead().getValor()).getNombre());
             try {
                 Thread.sleep(5000);

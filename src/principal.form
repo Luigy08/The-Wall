@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JDialog" name="jd_nuevoRegistro">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cb_nr_origen" min="-2" pref="170" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="dc_nr_Fnacimiento" min="-2" pref="129" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tf_nr_nombre" min="-2" pref="289" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cb_nr_nacionalidad" min="-2" pref="162" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="bt_NuevoRegistro" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="cb_nr_deportado" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cb_nr_raza" min="-2" pref="132" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tf_nr_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_nr_nacionalidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_nr_origen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="dc_nr_Fnacimiento" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_nr_raza" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="cb_nr_deportado" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="bt_NuevoRegistro" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_nr_nombre">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nacionalidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cb_nr_nacionalidad">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="67">
+                <StringItem index="0" value="Afgano"/>
+                <StringItem index="1" value="Aleman"/>
+                <StringItem index="2" value="Arabe"/>
+                <StringItem index="3" value="Argentino"/>
+                <StringItem index="4" value="Autraliano"/>
+                <StringItem index="5" value="Belga"/>
+                <StringItem index="6" value="Boliviano"/>
+                <StringItem index="7" value="Brasile&#xf1;o"/>
+                <StringItem index="8" value="Camboyano"/>
+                <StringItem index="9" value="Canadiense"/>
+                <StringItem index="10" value="Chileno"/>
+                <StringItem index="11" value="Chino"/>
+                <StringItem index="12" value="Colombiano"/>
+                <StringItem index="13" value="Coreano"/>
+                <StringItem index="14" value="Costarricense"/>
+                <StringItem index="15" value="Cubano"/>
+                <StringItem index="16" value="Danes"/>
+                <StringItem index="17" value="Ecuatoriano"/>
+                <StringItem index="18" value="Egipcop"/>
+                <StringItem index="19" value="Salvadore&#xf1;o"/>
+                <StringItem index="20" value="Escoces"/>
+                <StringItem index="21" value="Espa&#xf1;ol"/>
+                <StringItem index="22" value="Estonio"/>
+                <StringItem index="23" value="Etiope"/>
+                <StringItem index="24" value="Filipino"/>
+                <StringItem index="25" value="Finlandes"/>
+                <StringItem index="26" value="Frances"/>
+                <StringItem index="27" value="Gales"/>
+                <StringItem index="28" value="Griego"/>
+                <StringItem index="29" value="Guatelmalteco"/>
+                <StringItem index="30" value="Haitiano"/>
+                <StringItem index="31" value="Holandes"/>
+                <StringItem index="32" value="Hondure&#xf1;o"/>
+                <StringItem index="33" value="Indones"/>
+                <StringItem index="34" value="Ingles"/>
+                <StringItem index="35" value="Iraqui"/>
+                <StringItem index="36" value="irani"/>
+                <StringItem index="37" value="Irlandes"/>
+                <StringItem index="38" value="Israeli"/>
+                <StringItem index="39" value="Italiano"/>
+                <StringItem index="40" value="Japones"/>
+                <StringItem index="41" value="Jordano"/>
+                <StringItem index="42" value="Laosiano"/>
+                <StringItem index="43" value="Letonia"/>
+                <StringItem index="44" value="Lituania"/>
+                <StringItem index="45" value="Malayo"/>
+                <StringItem index="46" value="Marroqui"/>
+                <StringItem index="47" value="Mexicano"/>
+                <StringItem index="48" value="Nicaraguense"/>
+                <StringItem index="49" value="Noruego"/>
+                <StringItem index="50" value="Paname&#xf1;o"/>
+                <StringItem index="51" value="Paraguayo"/>
+                <StringItem index="52" value="Peruano"/>
+                <StringItem index="53" value="Polaco"/>
+                <StringItem index="54" value="Portugues"/>
+                <StringItem index="55" value="Puertorrique&#xf1;o"/>
+                <StringItem index="56" value="Dominicano"/>
+                <StringItem index="57" value="Rumano"/>
+                <StringItem index="58" value="Ruso"/>
+                <StringItem index="59" value="Suizo"/>
+                <StringItem index="60" value="Tailandes"/>
+                <StringItem index="61" value="Taiwanes"/>
+                <StringItem index="62" value="Turco"/>
+                <StringItem index="63" value="Ucraniano"/>
+                <StringItem index="64" value="Uruguayo"/>
+                <StringItem index="65" value="Venezolano"/>
+                <StringItem index="66" value="Vietnamita"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Feha de nacimiento"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Raza"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cb_nr_raza">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="Americano"/>
+                <StringItem index="1" value="Europeo"/>
+                <StringItem index="2" value="Africano"/>
+                <StringItem index="3" value="Asiatico"/>
+                <StringItem index="4" value="Caucasico"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_nr_deportado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Deportado"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nuevo Registro"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="bt_NuevoRegistro">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="AGREGAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_NuevoRegistroActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pais de origen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cb_nr_origen">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="70">
+                <StringItem index="0" value="Afganistan"/>
+                <StringItem index="1" value="Aleman"/>
+                <StringItem index="2" value="Arabia Saudita"/>
+                <StringItem index="3" value="Argentina"/>
+                <StringItem index="4" value="Australia"/>
+                <StringItem index="5" value="Belgica"/>
+                <StringItem index="6" value="Bolivia"/>
+                <StringItem index="7" value="Brasil"/>
+                <StringItem index="8" value="Camboya"/>
+                <StringItem index="9" value="Canada"/>
+                <StringItem index="10" value="Chile"/>
+                <StringItem index="11" value="Chile"/>
+                <StringItem index="12" value="China"/>
+                <StringItem index="13" value="Colombia"/>
+                <StringItem index="14" value="Corea"/>
+                <StringItem index="15" value="Costa Rica"/>
+                <StringItem index="16" value="Cuba"/>
+                <StringItem index="17" value="Dinamica"/>
+                <StringItem index="18" value="Ecuador"/>
+                <StringItem index="19" value="Egipto"/>
+                <StringItem index="20" value="El Salvador"/>
+                <StringItem index="21" value="Escocia"/>
+                <StringItem index="22" value="Espa&#xf1;a"/>
+                <StringItem index="23" value="Estonia"/>
+                <StringItem index="24" value="Etiopia"/>
+                <StringItem index="25" value="Filipinas"/>
+                <StringItem index="26" value="Finlandia"/>
+                <StringItem index="27" value="Francia"/>
+                <StringItem index="28" value="Gales"/>
+                <StringItem index="29" value="Grecia"/>
+                <StringItem index="30" value="Guatemala"/>
+                <StringItem index="31" value="Haiti"/>
+                <StringItem index="32" value="Holanda"/>
+                <StringItem index="33" value="Honduras"/>
+                <StringItem index="34" value="Indonesia"/>
+                <StringItem index="35" value="Inglaterra"/>
+                <StringItem index="36" value="Irak"/>
+                <StringItem index="37" value="Iran"/>
+                <StringItem index="38" value="Irlanda"/>
+                <StringItem index="39" value="Israel"/>
+                <StringItem index="40" value="Italia"/>
+                <StringItem index="41" value="Japon"/>
+                <StringItem index="42" value="Jordania"/>
+                <StringItem index="43" value="Laos"/>
+                <StringItem index="44" value="Letonia"/>
+                <StringItem index="45" value="Lituania"/>
+                <StringItem index="46" value="Malasia"/>
+                <StringItem index="47" value="Marruecos"/>
+                <StringItem index="48" value="Mexico"/>
+                <StringItem index="49" value="Nicaragua"/>
+                <StringItem index="50" value="Noruega"/>
+                <StringItem index="51" value="Nueva Zelanda"/>
+                <StringItem index="52" value="Panama"/>
+                <StringItem index="53" value="PAraguay"/>
+                <StringItem index="54" value="Peru"/>
+                <StringItem index="55" value="Polonia"/>
+                <StringItem index="56" value="Portugal"/>
+                <StringItem index="57" value="Puerto Rico"/>
+                <StringItem index="58" value="Republica Dominicana"/>
+                <StringItem index="59" value="Rumania"/>
+                <StringItem index="60" value="Rusia"/>
+                <StringItem index="61" value="Suecia"/>
+                <StringItem index="62" value="Suiza"/>
+                <StringItem index="63" value="Tailandia"/>
+                <StringItem index="64" value="Taiwan"/>
+                <StringItem index="65" value="Turquia"/>
+                <StringItem index="66" value="Ucrania"/>
+                <StringItem index="67" value="Uruguay"/>
+                <StringItem index="68" value="Venezuela"/>
+                <StringItem index="69" value="Vietnam"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="dc_nr_Fnacimiento">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="jd_abordar">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="pb_AA" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lb_nomA" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lb_emigrantes" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pb_AV" alignment="0" pref="190" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lb_destino" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_emigrantes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_nomA" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="pb_AA" min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lb_destino" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="pb_AV" min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Emigrantes en espera"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_emigrantes">
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Iniciar abordaje"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JProgressBar" name="pb_AV">
+          <Properties>
+            <Property name="maximum" type="int" value="5"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_nomA">
+        </Component>
+        <Component class="javax.swing.JProgressBar" name="pb_AA">
+          <Properties>
+            <Property name="maximum" type="int" value="5"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_destino">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Abordando:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Destino:"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Inicio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
+          </Events>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nuevo registro"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vuelos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit"/>
+          </Properties>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+</Form>
